@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>天气小站-vue</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- head begin -->
+        <div class="error">请输入城市名!</div>
+        <div class="error-empty">不能只为空格!</div>
+        <div class="head">    
+            <input class="search" type="text" name="search" placeholder="Your city name" required="required">
+            <button class="search-btn" v-on:click=""><span class="icon-font">&#xe615;</span>search</button>
+        </div>
+
+        <!-- head end -->
+        <div class="detail-info">
+            <h1>Current weather and forecasts in your city</h1>
+            <!-- current-info begin -->
+            <div class="current-info">
+                <h3 class="city-name">Weather in {{curdata.name}}</h3></li>
+                <h3 class="city-temp"><img v-bind:src="curdata.weather[0].imgSrc" alt="天气">{{curdata.main.temp}}</h3>
+                <p class="current-sky">{{curdata.weather[0].description}}</p>
+                <p class="current-data">get at {{curdata.date}}</p>
+                <div class="weather-info">
+                    <table>
+                        <tr class="well">
+                            <td>Wind</td>
+                            <td class="wind">
+                                <p class="speed">{{curdata.wind.speed}}m/s</p>
+                                <p class="deg"> {{curdata.wind.deg}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cloudiness</td>
+                            <td class="cloudiness">{{curdata.clouds.all}}</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure</td>
+                            <td class="pressure">{{curdata.main.pressure}} hpa</td>
+                        </tr>
+                        <tr>
+                            <td>Humidity</td>
+                            <td class="humidity">{{curdata.main.humidity}} %</td>
+                        </tr>
+                        <tr>
+                            <td>Sunrise</td>
+                            <td class="sunrise">{{curdata.sys.sunrise}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sunset</td>
+                            <td class="sunset">{{curdata.sys.sunset}}</td>
+                        </tr>
+                        <tr>
+                            <td>Geo coords</td>
+                            <td class="geo"><a class="" href="##">[{{curdata.coord.lat}},{{curdata.coord.lon}}]</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- forecast begin -->
+            <div class="forecast-info">
+                <div class="change-tab">
+                    <button type="button" id="hourly" class="hourly active">Hourly</button>
+                    <button type="button" id="daily" class="daily">Daily</button>
+                </div>
+                <h3>Weather forecast</h3>
+                <div class="content-hourly on">
+                    <table class="weather-hourly-vue" v-for="item in weather.list">
+                        <tr class="hourly-day">
+                            <td colspan="2"><b>{{item.date}} <span v-if="item.is_today">Today</span></b>
+                            </td>
+                        </tr>
+                        <tr class="hourly-time" v-for="value in  item.value">
+                            <td class="hourly-time-left">{{value.time}}<img v-bind:src="value.weather[0].imgSrc"></td>
+                            <td>
+                                <span>{{value.main.temp}}°C</span> <i>{{value.weather[0].description}}</i>
+                                <p>{{value.main.temp_min}} {{value.main.temp_max}} °C {{value.wind.speed}} m/s. {{value.clouds.all}}%, {{value.main.pressure}} hpa</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="content-daily">
+                    <table class="weather-daily-vue">
+                        <tr v-for="item in weatherdaily.list">
+                            <td class="weather-daily-left">
+                                <span class="weather-daily-date">{{item.date}}</span>
+                                <img v-bind:src="item.element.weather[0].imgSrc" />
+                            </td>
+                            <td class="weather-daily-right">
+                                <span class="day-temp" v-bind:class="{'temp-warn':item.is_warn}">{{item.element.temp.day}}°C</span>
+                                <span class="night-temp">{{item.element.temp.night}}°C</span>
+                                <i class="daily-description">{{item.element.weather[0].description}}</i>
+                                <p class="daily-speed">{{item.element.speed}}m/s</p>
+                                <p class="daily-pressure">{{item.element.clouds}}%,{{item.element.pressure}}pha</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.1.0/vue.min.js"></script>
+    <script src="js/js.cookie.js"></script>
+    <script src="js/main-vue.js"></script>
+
+</body>
+
+</html>

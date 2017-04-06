@@ -1,0 +1,238 @@
+@font-face {
+  font-family: 'iconfont';  /* project id："172072" */
+  src: url('http://at.alicdn.com/t/font_4divi0xl5w9oogvi.eot');
+  src: url('http://at.alicdn.com/t/font_4divi0xl5w9oogvi.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_4divi0xl5w9oogvi.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_4divi0xl5w9oogvi.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_4divi0xl5w9oogvi.svg#iconfont') format('svg');
+}
+.wrapper{
+	width: 70%;	
+	position: relative;
+	margin:30px auto;	
+}
+.head{
+	text-align: center;
+	padding: 50px;
+	border-bottom: 1px solid #ccc;
+}
+.error,.error-empty{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 200px;
+	padding: 10px;
+	text-align: center;
+	color: #fff;
+	background-color: #EB6613;
+	border-radius: 10px;
+	display: none;
+	letter-spacing: 8px;
+}
+.error:before,.error-empty:before{
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border:10px solid #EB6613;
+	border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-left-width: 0;
+    border-top-width: 12px;
+	margin-left: -20px;
+    transform: translate(-100%,70%);
+}
+.search{
+	width: 200px;
+	line-height: 30px;
+	border: 1px solid #EB6613;
+	border-radius: 3px;
+	padding-left: 5px;
+}
+.search:focus{
+	box-shadow:0 0 1px 1px  #2EF7F9;
+	background-color: #fff;
+}
+.search-btn{
+	line-height: 30px;
+	padding-right: 10px;
+	background-color: #EB6613;
+	border: none;
+	border-radius: 3px;
+	font-size: 1em;
+	color: #fff;
+	vertical-align: middle;
+}
+.search-btn:hover{
+	background-color: #c1631f;
+    border-color: #9e511a;
+    cursor: pointer;
+}
+.icon-font{
+	font-family: 'iconfont';
+	margin-right: 5px;
+}
+
+/**/
+.detail-info{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.detail-info h1{
+	color: #EB6613;
+	text-align: center;
+	width: 100%;
+	margin: 20px 0 ;	
+}
+
+/*current-info*/
+.current-info{
+	width: 40%;
+	margin-top: 20px;
+	margin-right: 10px;
+	
+}
+.city-name,.city-temp{
+	margin-bottom: 15px;
+	font-size: 1.5em;
+}
+.city-temp img{
+	vertical-align: middle;
+}
+.current-sky{
+	margin-bottom: 5px;
+}
+.weather-info{
+	font-size: 0.875em;
+}
+.weather-info table{
+	margin-top: 10px;
+	border-collapse: collapse;
+	border:1px solid #ccc;
+	width: 100%;
+}
+.weather-info td{
+	border:1px solid #ccc;
+	padding: 5px;
+}
+.weather-info tr:nth-child(2n+1){
+	background-color:#f9f9f9;
+}
+.weather-info td:first-child{
+	width: 40%;
+}
+.geo a{
+	color: #EB6613;
+}
+.geo a:hover{
+	text-decoration: underline;
+}
+/*forecast-info*/
+.change-tab{
+	font-size: 0;
+}
+.forecast-info{
+	width: 55%;
+}
+.hourly,.daily{
+	width: 80px;
+	height: 30px;
+	border:0;
+	border-bottom: 1px solid #ccc;
+	background-color: transparent;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+.active{
+	border-bottom-color:  #EB6613;
+}
+.forecast-info h3{
+	margin-bottom: 20px;
+	font-size: 1.5em;
+}
+/*vue版 内容区*/
+.content-daily,.content-hourly{
+	max-height: 500px;
+	overflow: auto;
+	display: none;
+}
+.weather-hourly-vue,.weather-daily-vue{
+	width: 100%;
+	font-size: 0.875em;
+	border-collapse: collapse;
+	/*display: none;*/
+}
+/*拼字符串内容区*/
+.content{
+	max-height: 500px;
+	overflow: auto;
+}
+.weather-hourly,.weather-daily{
+	width: 100%;
+	font-size: 0.875em;
+	border-collapse: collapse;
+	display: none;
+}
+.hourly-day{
+	border: 1px solid #ccc;
+	background-color: #f0f3f9;
+	border-top: none;
+}
+.weather-hourly td,.weather-hourly-vue td{
+	border-bottom: 1px solid #ccc;
+	padding:10px;
+}
+.hourly-time td:first-child{
+	width: 30%;
+}
+/*.hourly-time tr:last-child{
+	border-bottom: none;
+}*/
+.temp{
+	padding: 0 10px;
+	background-color: #aaa;
+	color: #fff;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+.hourly-time-left img{
+	vertical-align: middle;
+}
+/*content-daily*/
+.weather-daily tr,.weather-daily-vue tr{
+	width: 100%;
+}
+.weather-daily td,.weather-daily-vue td{
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+.weather-daily td:first-child,.weather-daily-vue td:first-child{
+	width: 40%;
+}
+.weather-daily-left img{
+	vertical-align: middle;
+	margin-left: 10px;
+}
+.day-temp,.night-temp{
+	padding: 0 10px;
+	color: #fff;
+	border-radius: 10px;
+}
+.day-temp{
+	background-color: #EB6613;
+}
+.temp-warn{
+	background-color: #428bca;
+}
+.night-temp{
+	background-color: #aaa;
+	margin: 0 10px;
+}
+.active-weather{
+	display: table;
+}
+.on{
+	display: block;
+}

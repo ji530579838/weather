@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气小站</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="wrapper">
+		<!-- head begin -->
+		<div class="head">
+			<!-- <form action="" method="get"> -->
+				<input class="search" type="text" name="search" value="Your city name"  required="required">
+				<button class="search-btn" ><span class="icon-font">&#xe615;</span>search</button>
+			<!-- </form> -->
+		</div>
+		<!-- head end -->
+
+		<div class="detail-info">	
+			<h1>Current weather and forecasts in your city</h1>
+			<!-- current-info begin -->
+			<div class="current-info">
+				<h3 class="city-name">Weather in London, GB</h3></li>
+				<h3 class="city-temp"><img src="http://openweathermap.org/img/w/50d.png" alt="天气"><span class="curtemp">3</span> °C</h3>
+				<p class="current-sky">Clear sky</p>
+				<p class="current-data">get at 2016/11/18 下午1:50</p>
+				<div class="weather-info">
+					<table>
+						<tr class="">
+							<td>Wind</td>
+							<td class="wind"><p class="speed"></p><p class="deg">  </p></td>
+						</tr>
+						<tr>
+							<td>Cloudiness</td>
+							<td class="cloudiness">Sky is clear</td>
+						</tr>
+						<tr>
+							<td>Pressure</td>
+							<td class="pressure">993 hpa</td>
+						</tr>
+						<tr>
+							<td>Humidity</td>
+							<td class="humidity">80 %</td>
+						</tr>
+						<tr>
+							<td>Sunrise</td>
+							<td class="sunrise">15:24</td>
+						</tr>
+						<tr>
+							<td>Sunset</td>
+							<td class="sunset">00:06</td>
+						</tr>
+						<tr>
+							<td>Geo coords</td>
+							<td class="geo"><a class="" href="##">[ 51.51, -0.13 ]</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!-- forecast begin -->
+			<div class="forecast-info">
+				<div class="change-tab">
+					<button type="button" id="hourly" class="hourly active">Hourly</button><button type="button" id="daily" class="daily">Daily</button>
+				</div>		
+				<h3>Weather forecast</h3>
+				<div class="content">
+					<table class="weather-hourly active-weather">
+						<tbody>
+						
+						</tbody>
+					</table>
+					<table class="weather-daily">
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>	
+</body>
+</html>

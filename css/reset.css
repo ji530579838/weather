@@ -1,0 +1,39 @@
+html{
+	box-sizing: border-box;
+}
+*,*:before,*:after{
+	box-sizing: inherit;
+}
+html, body, div, h1, h2, h3, h4, h5, h6, p, 
+a,em,img, dl, dt, dd, ol, ul, li,form,label,
+legend,table, tbody, tfoot, thead, tr, th, td ,span{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-family:-apple-system,BlinkMacSystemFont, Helvetica,Arial,'Microsoft Yahei', sans-serif;
+}
+body {
+	line-height: 1.5;
+}
+ul,li,ol{
+	list-style: none;
+}
+input,button{
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after{
+	content: "";
+	display: table;
+	clear: both;
+	visibility: hidden;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}

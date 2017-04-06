@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>weather</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main-app.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+<body>
+	<div class="container">
+		
+	<!-- 首页 -->
+	<div class="wrapper" v-show="active"  v-cloak>
+		<div class="menu">
+			<span class="dropdown" @click.stop="sideBarShow">&#xe601;</span>
+			<span class="refresh" @click="refresh">&#xe605;<span class="curtime">{{curTime}}</span></span>
+
+		</div>
+		<transition name="sideview" >
+			<div class="sidebar-view" v-show="sideBarFlag"  @click="sideBarShow">
+				<div class="sidebar">
+					<img class="sidelogo" src="http://utils.iwebxy.com/placehold/200x100" alt="占位猫">
+					<p class="addcity" @click="addCity"><span class="newlocation">&#xe618;</span>Add location</p>
+					<p class="setting"><span class="settingicon">&#xe617;</span>Settings</p>
+				</div>
+			</div>
+		</transition>
+		<!---->
+		<ul class="content">
+			<li class="city" v-for="(cityitem,i) in curData" v-bind:style="{backgroundColor:cityList[i].color}">
+				<table class="weather">
+					<tr class="locationinfo">
+						<td >
+							<p class="yourcity">{{cityitem.name}}</p>
+							<p class="country">{{cityitem.sys.country}}</p>
+						</td>
+						<td class="show">
+							<!-- <i class="wi wi-night-sleet"></i> -->
+							<img class="wi" :src="cityitem.weather[0].imgSrc" alt="天气">
+							<span class="more" @click.stop="cityitem.deleteShow = !cityitem.deleteShow">&#xe766;</span>
+							<transition name="fade">
+								<span class="delete" v-show="cityitem.deleteShow" @click="removeCity(i)">删除</span>
+							</transition>
+						</td>
+					</tr>
+					<tr class="description">
+						<td>
+							<span class="temp">{{cityitem.main.temp}}<sup>°C</sup></span>
+							<span class="rainicon">&#xe654;</span>
+							<span class="rain-probability">60%</span>
+						</td>
+						<td class="localtime">{{cityitem.date}}</td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+	</div>
+
+	<!-- 搜索页 -->
+	<div class="searchwarpper" v-show="!active" v-cloak>
+	
+        <div class="searchwarpper-input"> 
+        	<div class="error">请输入城市名!</div>
+        	<div class="error-empty">不能只为空格!</div>
+        	<span class="goback" @click="goBack">&#xe68d;</span>
+        	<button class="search-btn" @click="addNew">search</button> 
+        	<input class="search" type="text" placeholder="Your city name" v-model="newCity" @keyup.enter="addNew"> 
+        </div>
+  		
+        <div class="citylist">
+        	<ul>
+        		<li v-for="(cityitem,i) in cityList">{{cityitem.text}}</li>
+        	</ul>
+        </div>  
+	</div>
+
+	</div>
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.1.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+    <script src="js/js.cookie.js"></script>
+    <script src="js/main-app-event.js"></script>
+</body>
+</html>

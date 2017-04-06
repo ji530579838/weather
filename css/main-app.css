@@ -1,0 +1,241 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 172072 */
+  src: url('https://at.alicdn.com/t/font_i4qyfsko014kuik9.eot');
+  src: url('https://at.alicdn.com/t/font_i4qyfsko014kuik9.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_i4qyfsko014kuik9.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_i4qyfsko014kuik9.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_i4qyfsko014kuik9.svg#iconfont') format('svg');
+}
+
+[v-cloak]{
+	display: none;
+}
+/*-------------首页------------*/
+
+.wrapper,.searchwarpper{
+	width: 100%;
+	position: relative;
+}
+/*.wrapper{
+	display: none;
+
+}*/
+/*菜单栏*/
+.menu{
+	background-color: #00BBD2;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px 10px 40px;
+}
+.refresh,.dropdown{
+	font-family: 'iconfont'; 
+	color: #fff;
+	cursor: pointer;
+}
+.curtime{
+	padding-left: 10px;
+}
+
+/*侧边栏*/
+.sidebar-view{
+	background-color: rgba(0,0,0,0.26);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top:0;
+	transition: opacity ease .5s;
+}
+.sidebar{
+	min-width: 200px;
+	height: 100%;
+	position: absolute;
+	background-color: rgba(0,0,0,.9);
+	transition: transform ease 1s;
+	color: #fff;
+}
+.sidebar p{
+	padding: 10px 20px;
+	cursor:pointer;
+}
+.sideview-enter,.sideview-leave-active{	
+	opacity: 0;
+}
+.side-enter,.side-leave-active{
+	transform: translateX(-100%);
+}
+
+.sidelogo{
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+.sidebar p:hover{
+	background-color:#00BBD2;
+}
+.newlocation,.settingicon{
+	font-family: 'iconfont'; 
+	position: relative;
+	margin-right: 20px;
+
+}
+.newlocation:after{
+	content:"\e66b";
+	font-size: 0.75em;
+	position: absolute;
+	bottom: -5px;
+}
+/*主内容区*/
+.content{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	padding: 50px; 
+	background-color: #EEEEEE;
+	min-height: 250px;
+}
+.city{
+	width: 30%;
+	padding: 20px;
+	margin-bottom: 50px;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px 0 #A5A5A5;
+	color:#fff;
+}
+
+/*city 内容区*/
+.weather{
+	width: 100%;
+	height: 100%;
+}
+.weather tbody{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.locationinfo{
+	padding-bottom: 20px;
+}
+.show{
+	position: relative;
+}
+.wi{
+	margin-right: 30px;
+    font-size: 3em;
+}
+.more{
+	font-family: 'iconfont'; 
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+.delete{
+	border-radius: 5px;
+	padding: 2px 5px;
+	background-color: #F15656;
+	position: absolute;
+	right: -10%;
+    bottom: -60%;
+    cursor: pointer;
+}
+.fade-enter-active{
+	transition: opacity .5s;
+}
+.fade-enter,.fade-leave-active{
+	opacity:0;
+}
+.description,.locationinfo{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+.description{
+	justify-content: space-around;
+}
+.description>td{
+	width: 30%;
+}
+.rainicon{
+	font-family: 'iconfont';
+	padding: 0 10px;
+}
+.temp{
+	font-size: 3.5em;
+}
+.localtime{
+	text-align: right;
+	align-self: flex-end;
+}
+
+
+/*---------------搜索页 --------------*/
+.searchwarpper-input{
+	width: 100%;
+	text-align: center;
+	padding: 100px 0 20px 0;
+	background-color: #EEFF41;
+	box-shadow: 0 2px 2px 0 #A5A5A5;
+	position: relative;
+}
+
+.error,.error-empty{
+	position: absolute;
+	right: 10%;
+	transform: translateX(-50%);
+	width: 200px;
+	padding: 10px;
+	text-align: center;
+	color: #fff;
+	background-color: #F15656;
+	border-radius: 10px;
+	display: none;
+	letter-spacing: 8px;
+}
+.error:before,.error-empty:before{
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border:10px solid #F15656;
+	border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-left-width: 0;
+    border-top-width: 12px;
+	margin-left: -20px;
+    transform: translate(-100%,70%);
+}
+.search{
+	width: 70%;
+	font-size: 2.5em;
+	padding: 10px 0;
+	border: none;
+	border-bottom: 2px solid #03B0C3;
+	background-color: #EEFF41;
+}
+
+.search-btn{
+	border: none;
+	background-color: #EEFF41;
+	font-size: 1.5em;
+	color: #03B0C3;
+	position: absolute;
+	top:30%;
+	cursor: pointer;	
+}
+.search-btn:hover,.goback:hover{
+    color: #08F6EA;
+}
+.goback{
+	font-family: 'iconfont';
+	color: #03B0C3;
+	font-size: 2em;
+	position: absolute;
+	left:2%;
+	top:10%;
+	cursor: pointer;
+}
+.citylist{
+	padding: 20px;
+}
